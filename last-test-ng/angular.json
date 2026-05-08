@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "last-testament-ng": {
+    "last-test-ng": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -61,10 +61,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "last-testament-ng:build:production"
+              "buildTarget": "last-test-ng:build:production"
             },
             "development": {
-              "buildTarget": "last-testament-ng:build:development"
+              "buildTarget": "last-test-ng:build:development"
             }
           },
           "defaultConfiguration": "development"
