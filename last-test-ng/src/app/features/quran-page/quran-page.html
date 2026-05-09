@@ -5,8 +5,14 @@
   <div class="card">
   
       <!-- <div>top row</div> -->
-  
-      <h4><b>Test</b></h4>
+    
+      @for (ver of verses; track $index) {
+        <div class="verses">
+          @if (ver.translations) {
+            <span>{{ ver.translations[0].text }}</span>
+          }
+        </div>
+      }
   </div>
   
   <div class="card">

@@ -3,6 +3,10 @@
 # Environment
 .env
 
+src/environments/*
+!src/environments/environment.example.ts
+
+
 # Compiled output
 /dist
 /tmp
