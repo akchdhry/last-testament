@@ -1,0 +1,27 @@
+{
+  "name": "last-testament",
+  "version": "1.0.0",
+  "description": "last testament site",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run angular\"",
+    "server": "node server/server.js",
+    "angular": "cd angular && ng serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akchdhry/last-testament.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/akchdhry/last-testament/issues"
+  },
+  "homepage": "https://github.com/akchdhry/last-testament#readme",
+  "dependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
