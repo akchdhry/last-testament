@@ -7,16 +7,13 @@
     <!-- <div>top row</div> -->
     
     <h4><b>Test</b></h4>
-    @if (loading) {
+    @if (loading()) {
       <div>Loading</div>
-    }
-    @if (error) {
-      <div>{{ error }}</div>
-    }
-
-    @if (!loading && !error) {
+    } @else if (error() !== undefined) {
+      <div>{{ error()?.message }}</div>
+    } @else {
       @for (chapter of chapters(); track $index) {
-        {{chapter.nameSimple}}
+        <div>{{chapter.nameSimple}}</div>
       }
     }
 

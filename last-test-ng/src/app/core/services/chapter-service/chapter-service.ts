@@ -1,15 +1,14 @@
-// core/services//chapter-service/chapter-service.ts
-import { Injectable } from '@angular/core';
+// core/services/chapter.service.ts
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Chapter } from '@quranjs/api';
-import { environment } from '../../../../environments/environment.development';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class ChapterService {
-  private baseUrl = `${environment.apiUrl}/chapters`; // → http://localhost:3000/api/chapters
-
-  constructor(private http: HttpClient) {}
+  private http = inject(HttpClient);
+  private baseUrl = `${environment.apiUrl}/chapters`;
 
   getAll(): Observable<Chapter[]> {
     return this.http.get<Chapter[]>(this.baseUrl);

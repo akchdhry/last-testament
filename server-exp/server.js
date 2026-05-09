@@ -13,3 +13,11 @@ app.use('/api/chapters', chapterRoutes);
 app.listen(process.env.PORT || 3000, () =>
   console.log(`Proxy running on port ${process.env.PORT || 3000}`)
 );
+
+app.get('/health', (req, res) => {
+  res.json({
+    status: 'ok',
+    secretLoaded: !!process.env.QURAN_CLIENT_SECRET,
+    idLoaded: !!process.env.QURAN_CLIENT_ID
+  });
+});
