@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const chapterRoutes = require('./routes/chapter.routes');
+const chapterRoutes = require('./routes/chapter-routes');
 
 const app = express();
 app.use(cors({ origin: 'http://localhost:4200' }));
