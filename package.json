@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run angular\"",
-    "server": "node server/server.js",
-    "angular": "cd angular && ng serve",
+    "server": "node server-exp/server.js",
+    "angular": "cd last-test-ng && ng serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
