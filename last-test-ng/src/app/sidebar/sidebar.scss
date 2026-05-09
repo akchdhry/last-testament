@@ -21,7 +21,7 @@
   text-align: center;
   width: 3rem;
   min-width: 3rem;
-  border-radius: 0.313rem;
+  border-radius: var(--rounding-radius);
   padding: 0.313rem;
   font-size: 24px;
   font-weight: 900;
@@ -69,7 +69,7 @@
   height: 3rem;
   color: #f3f3f3;
   text-decoration: none;
-  border-radius: 0.625rem;
+  border-radius: var(--rounding-radius);
   transition: all 0.3s ease;
 }
 .sidenav-nav .sidenav-nav-item .sidenav-nav-link .sidenav-link-icon {
