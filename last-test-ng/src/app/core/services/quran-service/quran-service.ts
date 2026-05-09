@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-
-import { Language, QuranClient } from "@quranjs/api";
+import { Language, QuranClient, SearchMode } from "@quranjs/api";
 
 // Initialize the client
 const client = new QuranClient({
