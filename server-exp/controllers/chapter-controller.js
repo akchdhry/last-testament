@@ -5,7 +5,6 @@ exports.getAll = async (req, res) => {
     const chapters = await client.chapters.findAll();
     res.json(chapters);
   } catch (err) {
-    console.error('SDK error:', err); // ← add this temporarily
     res.status(500).json({ error: 'Failed to fetch chapters' });
   }
 };
