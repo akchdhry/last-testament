@@ -11,9 +11,9 @@ exports.getAll = async (req, res) => {
 
 exports.getById = async (req, res) => {
   try {
-    const chapter = await client.chapters.findById(req.params.id)
+    const chapter = await client.chapters.findById(req.params.id);
     res.json(chapter);
   } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch chapter: ' + err.message });
+    res.status(500).json({ error: 'Failed to fetch chapter: '});
   }
 };
