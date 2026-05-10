@@ -15,7 +15,7 @@ export class Sidebar {
     {
       routeLink: 'sunnah',
       icon: 'fa-solid fa-kaaba',
-      label: "The Prophet's Tradition"
+      label: "The Life of the Prophet"
     },
     {
       routeLink: 'quran',
@@ -25,7 +25,12 @@ export class Sidebar {
     {
       routeLink: 'audio',
       icon: 'fa-solid fa-headphones',
-      label: 'Hear the Scripture'
+      label: "Recitations"
+    },
+    {
+      routeLink: 'bible',
+      icon: 'fa-solid fa-book',
+      label: 'The Previous Scriptures'
     },
   ]
   toggleCollapse(): void {
