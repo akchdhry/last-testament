@@ -5,12 +5,12 @@
     <!-- <div>top row</div> -->
 
     @if (chapters_loading()) {
-      <div>Loading</div>
+      <div class="message">Loading...</div>
     } @else if (chapters_error() !== undefined) {
-      <div>{{ chapters_error()?.message }}</div>
+      <div class="message">{{ "Error:"}}<br>{{chapters_error()?.message }}</div>
     } @else {
-
-      <select class="select" [formControl]="chapterControl">
+      <select class="select" [formControl]="chapterControl"
+      >
         @for (chapter of chapters(); track chapter.id) {
           <option [value]="chapter.id">
             {{ `${chapter.id}: ${chapter.translatedName.name}`}}
@@ -19,6 +19,11 @@
       </select>
       <br/>
       <hr/>
+      @if (verses_loading()) {
+        <div class="message">Loading...</div>
+      } @else if (verses_error() !== undefined) {
+        <div class="message">{{ "Error:"}}<br>{{verses_error()?.message }}</div>
+      }
       <div class="verses">
         @for (verse of verses(); track verse.verseNumber) {
           <div>
@@ -32,7 +37,6 @@
   </div>
   
   <div></div>
-
   <div class="card">
     <h4><b>Test</b></h4>
   </div>
