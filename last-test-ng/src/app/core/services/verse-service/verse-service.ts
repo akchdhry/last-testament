@@ -10,11 +10,11 @@ export class VerseService {
   private http = inject(HttpClient);
   private baseUrl = `${environment.apiUrl}/verses`;
 
-  getByChapter(chapterNumber: number): Observable<Verse[]> {
-    return this.http.get<Verse[]>(this.baseUrl);
+  getByChapter(chapterId: number): Observable<Verse[]> {
+    return this.http.get<Verse[]>(`${this.baseUrl}/chapter/${chapterId}`);
   }
 
-  getByKey(id: number): Observable<Verse> {
-    return this.http.get<Verse>(`${this.baseUrl}/${id}`);
+  getByKey(key: String): Observable<Verse> {
+    return this.http.get<Verse>(`${this.baseUrl}/key/${key}`);
   }
 }

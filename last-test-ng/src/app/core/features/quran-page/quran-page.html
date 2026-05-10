@@ -1,24 +1,38 @@
-<p>quran-page works!</p>
-
 <div class="card-container">
 
   <div class="card">
   
     <!-- <div>top row</div> -->
-    
-    <h4><b>Test</b></h4>
-    @if (loading()) {
+
+    @if (chapters_loading()) {
       <div>Loading</div>
-    } @else if (error() !== undefined) {
-      <div>{{ error()?.message }}</div>
+    } @else if (chapters_error() !== undefined) {
+      <div>{{ chapters_error()?.message }}</div>
     } @else {
-      @for (chapter of chapters(); track $index) {
-        <div>{{chapter.nameSimple}}</div>
-      }
+
+      <select class="select" [formControl]="chapterControl">
+        @for (chapter of chapters(); track chapter.id) {
+          <option [value]="chapter.id">
+            {{ `${chapter.id}: ${chapter.translatedName.name}`}}
+          </option>
+        }
+      </select>
+      <br/>
+      <hr/>
+      <div class="verses">
+        @for (verse of verses(); track verse.verseNumber) {
+          <div>
+            <sup class="verse-number">{{verse.verseNumber}} </sup>
+            <span>{{strip(verse.translations?.at(0)?.text)}} </span>
+          </div>
+        }
+      </div>
     }
 
   </div>
   
+  <div></div>
+
   <div class="card">
     <h4><b>Test</b></h4>
   </div>

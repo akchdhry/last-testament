@@ -4,7 +4,7 @@
   position: fixed;
   z-index: 1;
   top: 0;
-  width: 22rem;
+  width: var(--sidebar-width);
   height: 100%;
   box-shadow: 0.063rem 0 1.25rem 0 #8690a3;
 }
@@ -30,7 +30,7 @@
   color: var(--primary);
 }
 .sidenav .logo-container .logo-text {
-  margin-left: 1.5rem;
+  margin-left: 1.25rem;
   font-size: 24px;
   font-weight: 700;
   color: #fff;
@@ -62,10 +62,10 @@ hr {
   flex-direction: column;
   align-items: center;
   cursor: pointer;
+  gap: 10px;
 }
 .sidenav-nav .sidenav-nav-item {
   width: 100%;
-  margin-bottom: 0.625rem;
 }
 .sidenav-nav .sidenav-nav-item .sidenav-nav-link {
   display: flex;
