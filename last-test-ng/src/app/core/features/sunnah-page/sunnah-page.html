@@ -1,1 +1,11 @@
-<p>sunnah-page works!</p>
+<div class="card-container">
+
+    <div class="card">
+
+        @for (line of prophetLikeMoses.split('\n'); track $index) {
+            <div class="line">{{line}} </div>
+        }
+
+    </div>
+
+</div>
