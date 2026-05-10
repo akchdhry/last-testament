@@ -4,9 +4,9 @@
   "description": "last testament site",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run angular\"",
+    "start": "concurrently \"npm run server\" \"npm run ng\"",
     "server": "cd server-exp && node server.js",
-    "angular": "cd last-test-ng && ng serve",
+    "ng": "cd last-test-ng && ng serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

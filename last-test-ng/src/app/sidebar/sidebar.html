@@ -9,6 +9,8 @@
         <div class="logo-text">The Last Testament</div>
     </div>
 
+    <hr/>
+
     <div class="sidenav-nav">
         @for (item of items; track $index) {
             <li class="sidenav-nav-item">
@@ -23,6 +25,27 @@
                 </a>
             </li>
         }
+    </div>
+    <hr/>
+    
+    <div class="sidenav-nav">
+        <li class="sidenav-nav-item">
+            <a 
+                class="sidenav-nav-link" 
+                routerLink="/about" 
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+            >
+                <i class="sidenav-link-icon fa-solid fa-circle-info"></i>
+                <span class="sidenav-link-text">About Us</span>
+            </a>
+        </li>
+
+
+        <!-- <button class="sidenav-link-icon">
+            <i class="fa-solid fa-circle-info"></i>
+        </button>
+        <div class="sidenav-link-text">About Us</div> -->
     </div>
 
 </div>
