@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { ChapterService } from '../../services/chapter-service/chapter-service';
 import { VerseService } from '../../services/verse-service/verse-service';
-import { Chapter } from '@quranjs/api';
+import { Chapter, Verse } from '@quranjs/api';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { rxResource, toSignal } from '@angular/core/rxjs-interop';
 import { filter } from 'rxjs';
@@ -63,4 +63,21 @@ export class QuranPage {
   verses = this.versesResource.value;
   verses_loading = this.versesResource.isLoading;
   verses_error = this.versesResource.error;
+
+  // verse selection
+  selectedVerse: Verse | null = null;
+  selectVerse(verse: Verse): void {
+    if (verse == this.selectedVerse) {
+      this.selectedVerse = null;
+    } else {
+      this.selectedVerse = verse;
+    }
+  }
+  
+  highlightVerse(verse: Verse): string {
+    if (verse == this.selectedVerse) {
+      return 'background-color: #b6d7a8;';
+    } else return '';
+  }
+
 }

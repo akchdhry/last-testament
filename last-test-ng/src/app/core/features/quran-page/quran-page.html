@@ -26,19 +26,31 @@
       }
       <div class="verses">
         @for (verse of verses(); track verse.verseNumber) {
-          <div>
-            <sup class="verse-number">{{verse.verseNumber}} </sup>
-            <span>{{strip(verse.translations?.at(0)?.text)}} </span>
-          </div>
+          <!-- <div> -->
+            <span class="verse-container" (click)="selectVerse(verse)" [style]="highlightVerse(verse)">
+              <sup class="verse-number">{{verse.verseNumber}} </sup>
+              <span class="verse-text">{{strip(verse.translations?.at(0)?.text)}}</span>
+            </span>
+          <!-- </div> -->
         }
       </div>
     }
-
   </div>
-  
-  <div></div>
+
+  <div><!-- empty div for card spacing grid --></div> 
+
   <div class="card">
-    <h4><b>Test</b></h4>
+    <h4 style="justify-self: center; padding: 1rem">Commentary</h4>
+    <hr/>
+
+    <div class="notes">
+      @if (selectedVerse == null) {
+        <h4 style="justify-self: center;"><b>Click on a verse to view relevant commentary</b></h4>
+      } @else {
+        <h4 style="justify-self: center;"><b>Tafsir ibn Kathir on {{selectedVerse.verseKey}}</b></h4>
+        <div [innerHTML]="selectedVerse.tafsirs?.at(0)?.text"></div>
+      }
+    </div>
   </div>
 
 </div>

@@ -1,7 +1,18 @@
+
+$hl-red: #ea9999;
+$hl-orange: #f9cb9c;
+$hl-yellow: #ffe599;
+$hl-green: #b6d7a8;
+$hl-blue: #9fc5e8;
+$hl-purple: #b4a7d6;
+$hl-pink: #d5a6bd;
+
+
 .card-container {
   display: grid;
   grid-template-columns: 55% 2% 43%;
   grid-template-rows: auto;
+  line-height: 1.75;
 }
 
 .card {
@@ -19,13 +30,28 @@
 
 /* Add some padding inside the card container */
 .verses {
-  margin: 1rem;
-  line-height: 1.75;
-  .verse-number {
-    vertical-align: top;
-    font-size: 75%;
-    font-weight: bold;
+    margin: 1rem;
+  .verse-container {
+    padding: 0.15em;
+    .highlighted {
+      background-color: #b4a7d6;
+    }
+    .verse-number {
+      vertical-align: top;
+      font-size: 75%;
+      font-weight: bold;
+    }
+    .verse-text {
+      font-family: inherit; // placeholder, maybe something later
+    }
+  } 
+  .verse-container:hover {
+    
   }
+}
+
+.notes {
+  margin: 1rem;
 }
 
 .message {

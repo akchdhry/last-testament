@@ -1,9 +1,12 @@
-const { QuranClient, Language } = require('@quranjs/api');
+const { Language } = require('@quranjs/api');
 const { createServerClient } = require('@quranjs/api/server')
 
 const client = createServerClient({
   clientId: process.env.QURAN_CLIENT_ID,
   clientSecret: process.env.QURAN_CLIENT_SECRET,
+  defaults: {
+    language: Language.ENGLISH,
+  },
 });
 
 // Initialize the client
