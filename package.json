@@ -4,6 +4,8 @@
   "description": "last testament site",
   "main": "index.js",
   "scripts": {
+    "setup": "npm run install:all && cp server/.env.example server/.env && echo 'Done! Fill in your API key in server/.env'",
+    "install:all": "npm install && cd angular && npm install && cd ../server && npm install",
     "start": "concurrently \"npm run server\" \"npm run ng\"",
     "server": "cd server-exp && node server.js",
     "ng": "cd last-test-ng && ng serve",
