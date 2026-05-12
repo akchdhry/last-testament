@@ -30,28 +30,15 @@
   color: var(--primary);
 }
 .sidenav .logo-container .logo-text {
-  margin-left: 1.25rem;
+  margin-left: 1.5rem;
   font-size: 24px;
-  font-weight: 700;
-  color: #fff;
+  font-weight: 900;
   white-space: nowrap;
   overflow: hidden;
 }
 
 hr {
   margin: 0.65rem 1rem 0.65rem 1rem;
-}
-
-.sidenav .logo-container .btn-close {
-  margin-left: auto;
-  cursor: pointer;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  background-color: transparent;
-  border: none;
-  color: #fff;
-  font-size: 24px;
 }
 
 .sidenav-nav {
@@ -63,29 +50,32 @@ hr {
   align-items: center;
   cursor: pointer;
   gap: 10px;
-}
-.sidenav-nav .sidenav-nav-item {
-  width: 100%;
-}
-.sidenav-nav .sidenav-nav-item .sidenav-nav-link {
-  display: flex;
-  align-items: center;
-  height: 3rem;
-  color: #f3f3f3;
-  text-decoration: none;
-  border-radius: var(--rounding-radius);
-  transition: all 0.3s ease;
-}
-.sidenav-nav .sidenav-nav-item .sidenav-nav-link .sidenav-link-icon {
-  font-size: 22px;
-  text-align: center;
-  padding: 12px;
-  min-width: 1.25em;
-}
-.sidenav-nav .sidenav-nav-item .sidenav-nav-link .sidenav-link-text {
-  margin-left: 1.5rem;
-  white-space: nowrap;
-  overflow: hidden;
+  .sidenav-nav-item {
+    width: 100%;
+    .sidenav-nav-link {
+      display: flex;
+      align-items: center;
+      height: 3rem;
+      color: #f3f3f3;
+      text-decoration: none;
+      border-radius: var(--rounding-radius);
+      transition: all 0.3s ease;
+      .sidenav-link-icon {
+        font-size: 22px;
+        text-align: center;
+        padding: 12px;
+        min-width: 1.25em;
+      }
+      .sidenav-link-text {
+        margin-left: 1.5rem;
+        white-space: nowrap;
+        overflow: hidden;
+        .logo-text {
+          font-weight: 900;
+        }
+      }
+    }
+  }
 }
 
 .active {

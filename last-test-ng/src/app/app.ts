@@ -24,7 +24,7 @@ export class App implements OnInit {
   }
 
   ngOnInit(): void {
-    this.isSidebarCollapsed.set(this.screenWidth() < 768);
+    this.isSidebarCollapsed.set(true);
   }
 
   changeIsSidebarCollapsed(isSidebarCollapsed: boolean): void {
