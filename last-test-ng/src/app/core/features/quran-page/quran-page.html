@@ -30,6 +30,8 @@
             <span class="verse-container" (click)="selectVerse(verse)" [style]="highlightVerse(verse)">
               <sup class="verse-number">{{verse.verseNumber}} </sup>
               <span class="verse-text">{{strip(verse.translations?.at(0)?.text)}}</span>
+              <br [hidden]="true">
+              <!-- <span class="verse-text">{{verse.textUthmani}}</span> -->
             </span>
           <!-- </div> -->
         }

@@ -6,6 +6,7 @@ exports.getByChapter = async (req, res) => {
       tafsirs: [169],
       translations: [20],
       perPage: 286,
+      fields: {textUthmani: true},
     });
     res.json(verses);
   } catch (err) {
@@ -18,6 +19,7 @@ exports.getByKey = async (req, res) => {
     const verse = await client.content.v4.verses.byKey(req.params.key, {
         tafsirs: [171],
         translations: [20], 
+        fields: {textUthmani: true},
     });
     res.json(verse);
   } catch (err) {
@@ -32,6 +34,7 @@ exports.getbyRange = async (req, res) => {
           tafsirs: [171],
           translations: [20], 
           perPage: 286,
+          fields: {textUthmani: true},
         });
         res.json(verses);
     } catch (err) {
