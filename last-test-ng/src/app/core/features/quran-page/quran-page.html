@@ -9,15 +9,18 @@
     } @else if (chapters_error() !== undefined) {
       <div class="message">{{ "Error:"}}<br>{{chapters_error()?.message }}</div>
     } @else {
-      <select class="select" [formControl]="chapterControl"
-      >
-        @for (chapter of chapters(); track chapter.id) {
-          <option [value]="chapter.id">
-            {{ `${chapter.id}: ${chapter.translatedName.name}`}}
-          </option>
-        }
-      </select>
-      <br/>
+      <div class="card-header">
+        <select class="select" [formControl]="chapterControl"
+        >
+          @for (chapter of chapters(); track chapter.id) {
+            <option [value]="chapter.id">
+              {{ `${chapter.id}: ${chapter.translatedName.name}`}}
+            </option>
+          }
+        </select>
+        <div></div>
+        <!-- <input #verseKeyInput class="select" type="text" (keydown.enter)="verseInput = verseKeyInput.value"> -->
+      </div>
       <hr/>
       @if (verses_loading()) {
         <div class="message">Loading...</div>
