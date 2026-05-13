@@ -27,18 +27,22 @@ export class QuranPage {
   // Verses Service Functionality
   private verseService = inject(VerseService);
 
-  chapterControl = new FormControl<number>(1);
-  selectedChapterId = toSignal(
-    this.chapterControl.valueChanges.pipe(
-      filter((id): id is number => id !== null)
+  keyControl = new FormControl<string>('');
+  inputKey = toSignal(
+    this.keyControl.valueChanges.pipe(
+      filter((id): id is string => id !== null)
     ),
-    { initialValue: 1 }
+    { initialValue: '' }
   );
 
   versesResource = rxResource({
-    params: this.selectedChapterId,
-    stream: ({ params: chapterId }) => this.verseService.getByChapter(chapterId)
+    params: this.inputKey,
+    stream: ({ params: key }) => this.verseService.getByKey(this.inputKey())
   });
+
+  verses = this.versesResource.value;
+  verses_loading = this.versesResource.isLoading;
+  verses_error = this.versesResource.error;
 
   strip(str: string | undefined): string {
     // create a new div container
@@ -59,10 +63,6 @@ export class QuranPage {
     // get div's innerHTML into a new variable
     return div.innerHTML;
   }
-
-  verses = this.versesResource.value;
-  verses_loading = this.versesResource.isLoading;
-  verses_error = this.versesResource.error;
 
   // verse selection
   selectedVerse: Verse | null = null;
