@@ -17,9 +17,9 @@ exports.getByChapter = async (req, res) => {
 exports.getByKey = async (req, res) => {
   try {
     const verse = await client.content.v4.verses.byKey(req.params.key, {
-        tafsirs: [171],
-        translations: [20], 
-        fields: {textUthmani: true},
+      tafsirs: [169],
+      translations: [20], 
+      fields: {textUthmani: true},
     });
     res.json(verse);
   } catch (err) {
@@ -29,14 +29,14 @@ exports.getByKey = async (req, res) => {
 
 exports.getbyRange = async (req, res) => {
     try {
-        const {from, to} = req.query;
-        const verses = await client.content.v4.verses.byRange(from, to, {
-          tafsirs: [171],
-          translations: [20], 
-          perPage: 286,
-          fields: {textUthmani: true},
-        });
-        res.json(verses);
+      const {from, to} = req.query;
+      const verses = await client.content.v4.verses.byRange(from, to, {
+        tafsirs: [169],
+        translations: [20], 
+        perPage: 286,
+        fields: {textUthmani: true},
+      });
+      res.json(verses);
     } catch (err) {
         res.status(500).json({error: err.message});
     }
