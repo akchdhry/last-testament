@@ -10,6 +10,8 @@
       <div class="message">{{ "Error:"}}<br>{{chapters_error()?.message }}</div>
     } @else {
       <div class="card-header">
+        <input class="select" type="text" [formControl]="keyControl" (keydown.enter)="submitKey()">
+        <div></div>
         <select class="select"
         >
           @for (chapter of chapters(); track chapter.id) {
@@ -18,8 +20,6 @@
             </option>
           }
         </select>
-        <div></div>
-        <input #verseKeyInput class="select" type="text" [formControl]="keyControl">
       </div>
       <hr/>
       @if (verses_loading()) {

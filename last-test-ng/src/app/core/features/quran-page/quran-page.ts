@@ -4,7 +4,7 @@ import { VerseService } from '../../services/verse-service/verse-service';
 import { Chapter, Verse } from '@quranjs/api';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { rxResource, toSignal } from '@angular/core/rxjs-interop';
-import { filter } from 'rxjs';
+import { filter, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-quran-page',
@@ -27,17 +27,31 @@ export class QuranPage {
   // Verses Service Functionality
   private verseService = inject(VerseService);
 
-  keyControl = new FormControl<string>('');
-  inputKey = toSignal(
-    this.keyControl.valueChanges.pipe(
-      filter((id): id is string => id !== null)
-    ),
-    { initialValue: '' }
-  );
+  private keySubmit = new Subject<string>;
+
+  keyControl = new FormControl<string>('1:1-7');
+  inputKey = toSignal(this.keySubmit.asObservable(), { initialValue: '1:1-7' });
+
+  submitKey() {
+    const val = this.keyControl.value;
+    if (val) this.keySubmit.next(val);
+  }
+
+  inputToRange(input: string): string[] {
+    let [ chapter , verses ] = input.split(':');
+    if (input.includes('-')) {
+      let [ from , to ] = verses.split('-');
+      return [`${chapter}:${from}`, `${chapter}:${to}`]
+    } else {
+      return [`${chapter}:${verses}`, `${chapter}:${verses}`];
+    }
+
+  }
 
   versesResource = rxResource({
     params: this.inputKey,
-    stream: ({ params: key }) => this.verseService.getByKey(this.inputKey())
+    stream: ({ params: key }) => 
+      (this.verseService.getByRange(this.inputToRange(key)[0], this.inputToRange(key)[1]))
   });
 
   verses = this.versesResource.value;

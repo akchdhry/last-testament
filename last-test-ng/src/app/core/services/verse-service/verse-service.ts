@@ -18,7 +18,7 @@ export class VerseService {
     return this.http.get<Verse>(`${this.baseUrl}/key/${key}`);
   }
 
-  getByRange(from: String, to: String): Observable<Verse> {
-    return this.http.get<Verse>(`${this.baseUrl}/range?from=${from}&to=${to}`);
+  getByRange(from: String, to: String): Observable<Verse[]> {
+    return this.http.get<Verse[]>(`${this.baseUrl}/range?from=${from}&to=${to}`);
   }
 }
